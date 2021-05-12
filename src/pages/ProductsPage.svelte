@@ -1,11 +1,13 @@
 <!-- ⚫️⚫️☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰ -->
 <script lang="ts">
+import Product from "../components/Products/ProductComponent.svelte";
 
     /** ⚫️☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰ JS | TS ☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚫️ */
 
     /**: - ©MEMBER-PROPERTIES|
      *-----------------------------*/
     export let name: string = 'Products'
+	export let location: string
     /*-----------------------------*/
 
     /**| ™- LABELED-STATEMENT |
@@ -21,14 +23,11 @@
 
 <div class="ProductsPageContainer">
 	<!-- ================ CONTAINER ================ -->
-    
-    <main>
-        
-        <div class="">
-            <h1>{name}: @Page</h1>
-        </div>
-
-	</main>
+ 
+ 
+	<h1>{name}: @Page</h1>
+	
+	<Product />
 	
 	<!-- ================ CONTAINER ================ -->
 </div>
