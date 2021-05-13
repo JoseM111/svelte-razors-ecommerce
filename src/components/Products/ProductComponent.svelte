@@ -1,12 +1,13 @@
 <!-- ⚫️⚫️☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰ -->
 <script lang="ts">
-    import productsData from "../../stores/defaultProducts"
     import { onDestroy, onMount } from "svelte"
+    import productsData from "../../stores/defaultProducts"
+    import type ProductType from "../../types/ProductType"
     /** ⚫️☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰ JS | TS ☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚫️ */
 
 
     /**: - ©MEMBER-PROPERTIES|*/
-
+	let localProducts: ProductType[] = []
     export let name: string = 'Product'
     /*☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰*/
 
@@ -29,8 +30,11 @@
      *           called when the component is unmounted.
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     onMount( () => {
-	    //☰☰☰☰☰☰☰☰☰☰
-	
+	    productsData.subscribe((value) => {
+		    console.log( value )
+		    //☰☰☰☰☰☰☰☰☰☰
+		    localProducts = value
+	    })
     } )
 
     /**∆ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -52,14 +56,17 @@
 
 <div class="ProductComponentContainer">
 	<!-- ================ CONTAINER ================ -->
-    
-    <main>
-        
-        <div class="">
-            <h1>{name}: @Component</h1>
-        </div>
+ <!---->
+ 
+	<h1>{name}: @Component</h1>
+	<!---->
+	{#each localProducts as product}
+		<!---->
+		<h2>{product.title}</h2>
+		
+	{/each}
+	
 
-	</main>
 	
 	<!-- ================ CONTAINER ================ -->
 </div>
