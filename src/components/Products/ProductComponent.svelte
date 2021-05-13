@@ -30,8 +30,8 @@
      *           called when the component is unmounted.
          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     onMount( () => {
-	    //☰☰☰☰☰☰☰☰☰☰
 	    productsData.subscribe((value) => {
+		    console.log( value )
 		    //☰☰☰☰☰☰☰☰☰☰
 		    localProducts = value
 	    })
@@ -56,14 +56,14 @@
 
 <div class="ProductComponentContainer">
 	<!-- ================ CONTAINER ================ -->
- 
+ <!---->
  
 	<h1>{name}: @Component</h1>
-	
+	<!---->
 	{#each localProducts as product}
-			<!---->
-			<h2>{product.title}</h2>
-			
+		<!---->
+		<h2>{product.title}</h2>
+		
 	{/each}
 	
 
